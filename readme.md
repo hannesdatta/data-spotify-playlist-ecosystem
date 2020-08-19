@@ -4,7 +4,7 @@ This is a repository which hosts the source code to prepare the public version o
 
 Datta, Hannes, 2020, "The playlist ecosystem at Spotify", https://doi.org/10.34894/4UBBAW, DataverseNL.
 
-If you are a (potential) user of the data, please directly access its [documentation here](doc/readme-data.txt). Use this repository to maintain the dataset, or jump-start your own workflow to release data to the public.
+If you are a (potential) user of the data, please directly access its [documentation here](doc/). Use this repository to maintain the dataset, or jump-start your own workflow to release data to the public.
 
 Maintainer: h.datta@tilburguniversity.edu
 
