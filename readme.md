@@ -15,7 +15,7 @@ __Note:__ The data set is not released to the public yet (expected mid of 2021).
 
 ## Overview about the data
 
-The repository documents and hosts two main data collections, administered via the Chartmetric API:
+This repository consists of two main data collections, administered via the Chartmetric API:
 
 **(1) Database 1, retrieved in 2019-11**
 
