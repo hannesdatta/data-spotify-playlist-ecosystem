@@ -3,3 +3,4 @@
 DVUploader.jar
 credentials.txt
 **/rawdata-confidential
+**__pycache__**
