@@ -17,12 +17,14 @@ fields = ['value','timestp','interpolated']
 # Write header
 g.write('playlist_id\t'+'\t'.join(fields)+'\n')
 
-   
+# Load data in chunks of 'buffersize' lines
+buffer = int(10000E5)
+
+logfile = 'followers.log'
+
 fns = glob.glob(jsonpath)
 
 for jsonfn in fns:
-    print(jsonfn)
-    
     print(jsonfn)
     
     # Calculate file size in lines
