@@ -1,0 +1,1 @@
+java -jar DVUploader.jar -server=https://dataverse.nl -ex=.DS_Store -ex=.gitkeep -key=ceea4f84-4fb9-4a38-ba64-57102620cf71 -did=doi:10.34894/4UBBAW -recurse rawdata-confidential

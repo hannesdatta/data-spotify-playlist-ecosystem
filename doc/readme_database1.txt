@@ -17,7 +17,7 @@ The playlist ecosystem at Spotify - DATABASE 1
 
 1.1  For what purpose was the dataset created?
      Was there a specific task in mind? Was there
-         a specific gap that needed to be filled?
+     a specific gap that needed to be filled?
      Please provide a description.
 
 
@@ -33,14 +33,14 @@ The playlist ecosystem at Spotify - DATABASE 1
 	
 1.2  Who created this dataset
      (e.g., which team, research group) and on behalf of
-         which entity (e.g., company, institution, organization)?
+      which entity (e.g., company, institution, organization)?
 
 	Hannes Datta, Tilburg University
 	
 
 1.3  Who funded the creation of the dataset?
      If there is an associated grant, please provide
-         the name of the grantor and the grant name and number.
+     the name of the grantor and the grant name and number.
 
 	Netherlands Organisation for Scientific Research,
 	Veni grant by Hannes Datta (NWO 453-09-004).
@@ -55,8 +55,8 @@ The playlist ecosystem at Spotify - DATABASE 1
 2.1  What do the instances that comprise the dataset represent
      (e.g., documents, photos, people, countries)?
      Are there multiple types of instances (e.g., movies,
-         users, and ratings; people and interactions between them;
-         nodes and edges)?
+     users, and ratings; people and interactions between them;
+     nodes and edges)?
      Please provide a description.
 
 	The data consists of three JSON files,
@@ -87,8 +87,8 @@ The playlist ecosystem at Spotify - DATABASE 1
      (not necessarily random) of instances from a larger set?
      If the dataset is a sample, then what is the larger set?
      Is the sample representative of the larger set
-         (e.g., geographic coverage)? If so, please describe how this
-         representativeness was validated/verified.
+     (e.g., geographic coverage)? If so, please describe how this
+     representativeness was validated/verified.
      If it is not representative of the larger set, please describe why not
      (e.g., to cover a more diverse range of instances, because
      instances were withheld or unavailable).
@@ -120,10 +120,12 @@ The playlist ecosystem at Spotify - DATABASE 1
 2.6  Is any information missing from individual instances?
      If so, please provide a description, explaining why this information is
      missing (e.g., because it was unavailable). This does not include
-         intentionally removed information, but might include, e.g., redacted text.
+     intentionally removed information, but might include, e.g., redacted text.
 
 	Some objects may have been downloaded with errors (shows up
-	in each object's status_code).
+	in each object's status_code; 200 if retrieved correctly).
+	
+	Each API endpoint has been tried for at least 3-5 times.
 
 
 2.7  Are relationships between individual instances made
@@ -139,7 +141,7 @@ The playlist ecosystem at Spotify - DATABASE 1
      If so, please provide a description of these splits, explaining the
      rationale behind them.
 
-	No.
+	 No.
 	
 2.9  Are there any errors, sources of noise, or redundancies in the dataset?
      If so, please provide a description.
@@ -161,7 +163,7 @@ The playlist ecosystem at Spotify - DATABASE 1
      any of the external resources that might apply to a future user?
      Please provide descriptions of all external resources and any restrictions
      associated with them, as well as links or other access points, as
-         appropriate.
+     appropriate.
 
 	Links to Spotify, using Spotify IDs for e.g., playlists or artists/tracks.
 	The objects also contain image links, and it's not guaranteed these
@@ -184,7 +186,7 @@ The playlist ecosystem at Spotify - DATABASE 1
 2.13 Does the dataset relate to people?
      If not, you may skip the remaining questions in this section.
 
-	Music artists and playlist curators.
+	Music artists and playlist curators. Some of the playlist curators are individual users of Spotify.
 	
 2.14 Does the dataset identify any subpopulations (e.g., by age, gender)?
      If so, please describe how these subpopulations are identified and
@@ -197,7 +199,7 @@ The playlist ecosystem at Spotify - DATABASE 1
      from the dataset?
      If so, please describe how.
 
-	Certain curators may be identifiable based on their usernames.
+	Some curators of playlists may be identifiable based on their usernames.
 
 
 2.16 Does the dataset contain data that might be considered sensitive in
@@ -208,7 +210,12 @@ The playlist ecosystem at Spotify - DATABASE 1
      criminal history)?
      If so, please provide a description.
 
-	No.
+	The data reveals the names of playlists created by playlist curators
+	on the platform. To the degree that users disclose their ethnic origin,
+	sexual orientation, religious beliefs or political opinions, this
+	may be reflected in the data. The data set has not been collected
+	for this process, and it has not been attempted to identify such dimensions
+	from the data.
 	
 2.17 Any other comments?
 
@@ -219,8 +226,8 @@ The playlist ecosystem at Spotify - DATABASE 1
 3.1  How was the data associated with each instance acquired?
      Was the data directly observable (e.g., raw text, movie ratings),
      reported by subjects (e.g., survey responses), or indirectly
-         inferred/derived from other data (e.g., part-of-speech tags, model-based
-        guesses for age or language)? If data was reported by subjects or indirectly
+     inferred/derived from other data (e.g., part-of-speech tags, model-based
+     guesses for age or language)? If data was reported by subjects or indirectly
      inferred/derived from other data, was the data validated/verified?
      If so, please describe how.
 
@@ -236,7 +243,7 @@ The playlist ecosystem at Spotify - DATABASE 1
 	
 3.2  What mechanisms or procedures were used to collect the data
      (e.g., hardware apparatus or sensor, manual human curation,
-         software program, software API)?
+     software program, software API)?
      How were these mechanisms or procedures validated?
 
 	Data collected on Datta's office computer at Tilburg University.
@@ -282,11 +289,14 @@ collections included here
 5ddbb91f92115a12683ce2d1 get-playlist-placements platform-power-max (updated API call) 2019-11-25 11:21 no jobsize available ** INCLUDED HERE **
 5ddbb99d92115a12683e6972 get-playlist-placements platform-power-max (updated API call) 2019-11-25 11:23 no jobsize available ** INCLUDED HERE **
 
+Notes: Job sizes (i.e., number of endpoints to be retrieved) were included in an earlier version of the code,
+but discontinued in later data collections. The same jobs (e.g., "get-playlist-followers platform-power-max") may have
+multiple job IDs because the job was split into multiple retrieval requests.
 
 
 3.4  Who was involved in the data collection process (e.g., students,
-       crowdworkers, contractors) and how were they compensated (e.g., how
-         much were crowdworkers paid)?
+     crowdworkers, contractors) and how were they compensated (e.g., how
+     much were crowdworkers paid)?
 
 	Hannes Datta.
 	
@@ -327,9 +337,13 @@ collections included here
      notice was provided, and provide a link or other access point to,
      or otherwise reproduce, the exact language of the notification itself.
 
-	Individuals are active in the music business; as such, they were
-	treated as businesses.
-
+	Many of the curators in the data are entities in the music industry
+	(e.g., music labels, artists, radio stations, etc.). 
+	The data also contains the curation decisions of individual users,
+	who have agreed to the Spotify Terms of Use that their publicly listed
+	playlist data is retrievable via the Spotify Web API, which in turn was
+	used by our data provider to disclose the data to us.
+	
 3.10 Did the individuals in question consent to the collection and use of their
      data?
      If so, please describe (or show with screenshots or other information)
@@ -368,10 +382,10 @@ collections included here
 ==========================================================
 
 4.1  Was any preprocessing/cleaning/labeling of the data done (e.g.,
-       discretization or bucketing, tokenization, part-of-speech tagging,
-         SIFT feature extraction, removal of instances, processing of
-         missing values)? If so, please provide a description. If not, you may skip
-         the remainder of the questions in this section.
+     discretization or bucketing, tokenization, part-of-speech tagging,
+     SIFT feature extraction, removal of instances, processing of
+     missing values)? If so, please provide a description. If not, you may skip
+     the remainder of the questions in this section.
 
 	The raw data was retrieved via the Chartmetric API, and is included as is.
 	There are three parsing scripts available for each of the main data sets - 
@@ -443,13 +457,19 @@ collections included here
      dataset was created?
      If so, please provide a description.
 
-	At this stage no.
+	 The raw data set will not be distributed to third parties
+	 outside of Tilburg University.
+	 
+	 Derived versions that are GDPR compliant (e.g., 
+	 with anonymized user names) can be distributed later on.
 	
 	
-6.2  How will the dataset will be distributed(e.g.,tarball on website, API,
+6.2  How will the dataset will be distributed (e.g.,tarball on website, API,
        GitHub)? Does the dataset have a digital object identifier (DOI)?
 
-	Stored for interal use at dataverse.
+	Stored for interal use at dataverse (private).
+	
+	Derived (parsed, and GDPR-compliant versions) will be made public.
 
 6.3  When will the dataset be distributed?
 
