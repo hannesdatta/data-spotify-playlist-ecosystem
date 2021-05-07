@@ -10,7 +10,7 @@ outfn = sys.argv[2]
 #jsonpath='e:/projects/data-spotify-playlist-ecosystem/rawdata-confidential/database2_2020_04/playlist-placements_*'
 
 #outfn='../output/playlist-placements.csv'
-logfile = '../temp/errlog.log'
+logfile = '../errlog-placements.log'
 
 # Load data in chunks of 'buffersize' lines
 buffer = int(10000E5)

@@ -1,0 +1,21 @@
+# Makefile for \raw-parse of the Covid power project
+# by Hannes Datta
+# requires GNU Make
+
+TEMP_DIR = ../temp
+OUTPUT_DIR = ../release/2021_05_07
+EXT_DIR = ../rawdata-confidential
+
+all: parse
+
+parse: $(OUTPUT_DIR)/playlist-followers.csv 
+
+###### BUILD COMMANDS ######
+
+# parse raw playlist data
+$(OUTPUT_DIR)/all-playlists.csv: parse_allplaylists.py
+	python.exe parse_allplaylists.py $(EXT_DIR)/database3_2020_09/all-playlists.json $(OUTPUT_DIR)/all-playlists.csv
+
+# parse followers
+$(OUTPUT_DIR)/playlist-followers.csv: parse_followers.py 
+	python.exe parse_followers.py "$(EXT_DIR)/database3_2020_09/playlist-db3-followers_*" $(OUTPUT_DIR)/playlist-followers.csv
