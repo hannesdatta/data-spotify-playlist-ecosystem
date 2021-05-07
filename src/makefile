@@ -21,8 +21,8 @@ $(OUTPUT_DIR)/playlist-followers.csv: parse_followers.py
 	python.exe parse_followers.py "$(EXT_DIR)/database2_2020_04/playlist-followers_*" $(OUTPUT_DIR)/playlist-followers.csv
 
 # parse followers of rec' playlists
-$(OUTPUT_DIR)/playlist-followers-recommendations.csv: parse_followers.py $(EXT_DIR)/database2_2020_04/playlist-followers-recommendations.json
-	python.exe parse_followers.py $(EXT_DIR)/database2_2020_04/playlist-followers-recommendations.json $(OUTPUT_DIR)/playlist-followers-recommendations.csv
+$(OUTPUT_DIR)/playlist-followers-recommendations.csv: parse_followers.py
+	python.exe parse_followers.py "$(EXT_DIR)/database2_2020_04/playlist-followers-recommendations*" $(OUTPUT_DIR)/playlist-followers-recommendations.csv
 
 # parse track placements on playlists (top 150k)
 $(OUTPUT_DIR)/playlist-placements.csv: parse_placements.py
@@ -37,15 +37,15 @@ $(OUTPUT_DIR)/playlist-placements-recommendations.csv: parse_placements.py
 	python.exe parse_placements.py "$(EXT_DIR)/database2_2020_04/playlist-placements-recommendations_*" $(OUTPUT_DIR)/playlist-placements-recommendations.csv
 
 # parse instagram followers
-$(OUTPUT_DIR)/fans-instagram.csv: parse_fans.py $(EXT_DIR)/database2_2020_04/fans-instagram.json
+$(OUTPUT_DIR)/fans-instagram.csv: parse_fans.py
 	python.exe parse_fans.py $(EXT_DIR)/database2_2020_04/fans-instagram.json $(OUTPUT_DIR)/fans-instagram.csv
 
 # parse deezer followers
-$(OUTPUT_DIR)/fans-deezer.csv: parse_fans.py $(EXT_DIR)/database2_2020_04/fans-deezer.json
+$(OUTPUT_DIR)/fans-deezer.csv: parse_fans.py 
 	python.exe parse_fans.py $(EXT_DIR)/database2_2020_04/fans-deezer.json $(OUTPUT_DIR)/fans-deezer.csv
 
 # parse deezer followers (missings)
-$(OUTPUT_DIR)/fans-deezer-missings.csv: parse_fans.py $(EXT_DIR)/database2_2020_04/fans-deezer-missings.json
+$(OUTPUT_DIR)/fans-deezer-missings.csv: parse_fans.py
 	python.exe parse_fans.py $(EXT_DIR)/database2_2020_04/fans-deezer-missings.json $(OUTPUT_DIR)/fans-deezer-missings.csv
 
 
