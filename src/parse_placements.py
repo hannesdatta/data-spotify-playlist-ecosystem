@@ -3,18 +3,32 @@ import re
 from auxilary import printProgressBar
 import sys
 import glob
+import os
+
+try:
+	os.mkdir('../output')
+except:
+	print('output dir exists.')
+
+try:
+	os.mkdir('../temp')
+except:
+	print('temp dir exists.')
 
 jsonpath = sys.argv[1]
-outfn = sys.argv[2]  
+fn_parsed_placements = sys.argv[2]  
+fn_parsed_positions = sys.argv[3] 
 
-#jsonpath='e:/projects/data-spotify-playlist-ecosystem/rawdata-confidential/database2_2020_04/playlist-placements_*'
+#jsonpath='../externals/playlist-placements.json'
+#fn_parsed_placements='../output/test-parse-placements.csv'
+#fn_parsed_positions = '../output/test-parse_positions'
 
-#outfn='../output/playlist-placements.csv'
-logfile = '../errlog-placements.log'
+logfile = '../temp/errlog.log'
 
 # Load data in chunks of 'buffersize' lines
 buffer = int(10000E5)
 
+# Define variables that will be parsed
 fields = ['track_id',
               #'isrc',
               #'position',
@@ -31,17 +45,18 @@ fields = ['track_id',
               #'code2s',
               'spotify_duration_ms',
               'album_names', 'album_label', 'release_dates']
-    
+ 
 fields_audio = ['key', 'mode', 'danceability','energy','speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence','tempo', 'loudness']
     
-    
-# THIS IS THE FULL  SCRIPT
-g=open(outfn, 'w', encoding='utf-8')
-    
-# header
+# Open output CSV files for writing
+g=open(fn_parsed_placements, 'w', encoding='utf-8')
+h=open(fn_parsed_positions, 'w', encoding='utf-8')
+     
+# Write headers
 g.write('playlist_id\t'+'\t'.join(fields)+'\t'+'\t'.join(fields_audio)+'\n')
+h.write('playlist_id\ttrack_id\tdate\tposition\n')
     
-    
+# Search for files to parse
 fns = glob.glob(jsonpath)
 
 for jsonfn in fns:
@@ -93,6 +108,8 @@ for jsonfn in fns:
                     continue
     
                 for item in resp.get('obj'):
+                    
+                    # Parse data on "fields"
                     res = []
                     g.write(playlist_id+'\t')
                     for it in fields:
@@ -107,7 +124,7 @@ for jsonfn in fns:
                         res.append(tmp)
                     g.write('\t'.join(res)+'\t')
     
-                    # acoustic attributes
+                    # Parse data on acoustic attributes
                     res=[]
                     for it in fields_audio:
                         try:
@@ -120,6 +137,12 @@ for jsonfn in fns:
                             tmp = 'NA'
                         res.append(tmp)
                     g.write('\t'.join(res)+'\n')
+                    
+                    # Parse position data
+                    for pos in item.get('position_stats'):
+                        pos_timestamp = pos.get('timestp').replace('T00:00:00.000Z','')
+                        h.write(str(playlist_id)+'\t'+str(item.get('track_id'))+'\t'+pos_timestamp+'\t' + str(pos.get('position'))+'\n')
+                    
        tmp_lines = f.readlines(buffer)
     print('Done with file. Proceed.')
     
